@@ -1,0 +1,8 @@
+{
+  "/api/*": {
+    "target": "https://licenses.admin.panacea-coop.com",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

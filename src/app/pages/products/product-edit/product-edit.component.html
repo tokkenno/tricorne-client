@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <h4 class="modal-title" *ngIf="isEdit">Edit product</h4>
+    <h4 class="modal-title" *ngIf="!isEdit">New product</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss(null)">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body" [formGroup]="form">
+    <div class="form-group">
+        <label for="productName">Product name</label>
+        <input type="text" class="form-control" id="productName" formControlName="name">
+    </div>
+    <div class="form-group">
+        <label for="productSlug">Slug</label>
+        <input type="text" class="form-control" id="productSlug" formControlName="slug">
+    </div>
+    <div class="form-group">
+        <label for="productKeyAlgorithm">Key algorithm</label>
+        <select class="form-control" id="productKeyAlgorithm" formControlName="keyAlgorithm">
+            <option value="rsa4096">RSA-4096</option>
+        </select>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.dismiss(null)">Close</button>
+    <button type="button" class="btn btn-outline-primary" [disabled]="!form.valid" (click)="save()" *ngIf="isEdit">Update</button>
+    <button type="button" class="btn btn-outline-primary" [disabled]="!form.valid" (click)="save()" *ngIf="!isEdit">Create</button>
+</div>
